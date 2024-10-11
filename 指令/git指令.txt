@@ -1,0 +1,72 @@
+1、创建.git
+git init
+
+
+2、修改.git 中config文件 加上
+[user]
+email=ankskfp237@163.com
+name=FengYuchenGuang
+
+
+3、添加文件 
+git add *    //添加所有文件
+
+方法一 git add 添加多个文件，文件之间以空格隔开
+git add file1 file2 file3
+
+方法三 添加指定目录下的文件
+config目录下及子目录下所有文件，home目录下的所有.php文件
+git config/*
+git home/*.php
+
+
+4、创建提交内容 提交到本地仓库
+git commit -m "first commit"
+
+
+###切换分支（内容存储到那个分支）
+git branch -M main
+
+
+
+5、选择上传到github的网址
+git remote add origin 自己的github网址
+
+git remote add origin https://github.com/FengYuchenGuang/Java-Javabase.git
+git remote add origin https://github.com/FengYuchenGuang/javaWeb.git
+git remote add origin https://github.com/FengYuchenGuang/javaCloud.git
+
+
+
+6、开始上传
+git push -u origin master
+git push -u origin main//推送
+
+###上传到指定分支
+git push -u origin main
+
+
+//取消http代理
+git config --global --unset http.proxy
+//取消https代理
+git config --global --unset https.proxy
+
+//远程仓库拉取到本地仓库
+git pull
+//提取到本地
+git pull origin master
+
+idea
+git branch --set-upstream-to=origin/master
+
+刚刚拉取主分支最新的代码出现
+Untracked Files Prevent Merge
+Move or commit them before merge
+
+//强制覆盖本地代码
+git fetch --all && git reset --hard origin/master && git pull
+
+
+git branch -M main//构建分支
+
+

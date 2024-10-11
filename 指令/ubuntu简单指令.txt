@@ -1,0 +1,104 @@
+ssh root@region-41.seetacloud.com 19892
+EWQMCWU9TN
+
+ssh root@region-41.seetacloud.com 27131
+EWQMCWU9TN
+
+
+cd /root/skin_train/BA-Transformer-main
+cd /root/skin_train/GABATransformer
+cd /root/skin_train/Medical-Transformer-mainold
+
+ubuntu简单指令
+
+ubuntu中查看已安装python的版本
+python --version
+
+pytorch版本查询
+
+cuda版本查询
+nvidia-smi
+
+创建文件夹和创建文件命令
+mkdir 文件夹名字
+touch 文件名.后缀名
+删除文件： rm a.txt. 
+删除文件夹： rmdir NewFolder
+删除带有文件的文件夹： rm -r NewFolder
+
+ubuntu回到上一级目录
+cd ..
+
+解压zip
+1、把文件解压到当前目录下
+unzip test.zip
+
+unzip -d /skin_train BA-Transformer-main.zip
+
+
+2、如果要把文件解压到指定的目录下，需要用到-d参数。
+unzip -d /temp test.zip
+unzip -d /root/skin_train/BA-Transformer-main/dataset/npyPic isic2017.zip
+3、将压缩文件test.zip在指定目录tmp下解压缩，如果已有相同的文件存在，要求unzip命令覆盖原先的文件
+unzip -o test.zip -d /tmp/
+
+
+ubuntu下运行python文件
+python file.py
+
+
+
+修改文件
+进入vi的命令  
+vi filename :打开或新建文件，并将光标置于第一行首  
+vi +n filename ：打开文件，并将光标置于第n行首  
+vi + filename ：打开文件，并将光标置于最后一行首  
+vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处 
+vi -r filename ：在上次正用vi编辑时发生系统崩溃，恢复filename  
+vi filename….filename ：打开多个文件，依次进行编辑 
+进入编辑器之后按下字母 “i” 进入编辑模式。
+
+编辑完毕，要退出，先按“Esc”。
+
+1、保存并退出——shift+zz 或者 :wq!
+
+2、不保存退出——:q!
+
+3、强制退出——:!
+
+4、正常退出——:q
+
+
+
+查看当前目录的绝对路径
+pwd
+
+
+pip国内源
+清华大学：https://pypi.tuna.tsinghua.edu.cn/simple
+阿里云：http://mirrors.aliyun.com/pypi/simple
+豆瓣：http://pypi.douban.com/simple
+
+pip install numpy -i http://pypi.douban.com/simple
+
+
+
+tmux
+
+sudo apt-get update
+
+sudo apt-get install tmux
+
+然后就可以新开一个会话了：
+tmux new -s BAT 
+这个会话相当于一个后台进程，你可以在这个会话里运行程序，这个会话会一直存在，直到你用命令把他删掉。
+只要会话还存在，里面的程序就会一直运行。所以这个会话里的程序不会因为你关闭xshell就自动停止。
+
+在会话里启动进程后，回到原本界面的方法：
+先按下ctrl+b，然后再单独按d
+
+回到原本界面之后，会话里的程序仍然在运行，此时再重新回到会话里查看程序运行情况的命令：
+tmux a -t BAT
+
+杀死会话
+tmux kill-session -t BAT
