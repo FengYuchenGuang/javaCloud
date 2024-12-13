@@ -30,6 +30,11 @@
         </set>
         WHERE `id`=#{id};
     </update>
+
+    <update id="updateBalanceByIds">
+        UPDATE user SET balance = balance + #{amount} ${ew.customSqlSegment}
+    </update>
+
     <delete id="deleteUser" parameterType="com.itheima.mp.domain.po.User">
         DELETE FROM user WHERE id = #{id}
     </delete>
