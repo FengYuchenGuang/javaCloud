@@ -3,6 +3,7 @@ package com.itheima.mp.mapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.itheima.mp.domain.po.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,38 @@ class UserMapperTest {
 
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * ======================================
+     *
+     *  使用静态工具查询
+     *
+     * ======================================
+     */
+    @Test
+    void testDbGet() {
+        User user = Db.getById(1L, User.class);
+        System.out.println(user);
+    }
+
+    @Test
+    void testDbList() {
+        // 利用Db实现复杂条件查询
+        List<User> list = Db.lambdaQuery(User.class)
+                .like(User::getUsername, "o")
+                .ge(User::getBalance, 1000)
+                .list();
+        list.forEach(System.out::println);
+    }
+
+    @Test
+    void testDbUpdate() {
+        Db.lambdaUpdate(User.class)
+                .set(User::getBalance, 2000)
+                .eq(User::getUsername, "Rose")
+                .update();
+    }
+
 
     /**
      * 以下演示使用 mybatis 创建函数 与 使用 mybatisplus
@@ -141,6 +174,7 @@ class UserMapperTest {
                 .in("id", ids);
         // 3、调用自定义sql
         userMapper.updateBalanceByIds(wrapper, amount);
-
     }
+
+
 }

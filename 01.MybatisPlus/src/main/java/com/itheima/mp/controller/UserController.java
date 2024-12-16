@@ -67,13 +67,24 @@ public class UserController {
         userService.removeById(userId);
     }
 
-    @GetMapping("/{id}")
+    /**
+     *
+     * 旧代码，只查询 用户信息
+     */
+    @GetMapping("/query1_{id}")
     @ApiOperation("根据id查询用户")
-    public UserVO queryUserById(@ApiParam("用户id") @PathVariable("id") Long userId){
+    public UserVO queryUserById_1(@ApiParam("用户id") @PathVariable("id") Long userId){
         // 1.查询用户
         User user = userService.getById(userId);
         // 2.处理vo
         return BeanUtil.copyProperties(user, UserVO.class);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询用户 和 相关地址信息")
+    public UserVO queryUserById(@ApiParam("用户id") @PathVariable("id") Long userId){
+
+        return userService.queryUserAndAddressById(userId);
     }
 
     @GetMapping
