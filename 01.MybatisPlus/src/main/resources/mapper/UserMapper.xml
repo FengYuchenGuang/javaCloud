@@ -31,6 +31,8 @@
         WHERE `id`=#{id};
     </update>
 
+
+
     <update id="updateBalanceByIds">
         UPDATE user SET balance = balance + #{amount} ${ew.customSqlSegment}
     </update>

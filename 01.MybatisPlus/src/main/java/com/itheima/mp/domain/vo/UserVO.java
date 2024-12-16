@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+/**
+ * 返回前端的实体
+ */
 @Data
 @ApiModel(description = "用户VO实体")
 public class UserVO {

@@ -6,6 +6,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+/**
+ * 接收前端传输过来 的 实体类
+ */
 @Data
 @ApiModel(description = "用户表单实体")
 public class UserFormDTO {

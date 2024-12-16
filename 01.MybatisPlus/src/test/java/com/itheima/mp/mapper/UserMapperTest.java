@@ -24,7 +24,7 @@ class UserMapperTest {
     void testInsert() {
         User user = new User();
 //        user.setId(5L);
-        user.setUsername("hxz123");
+        user.setUsername("hajah");
         user.setPassword("1314520");
         user.setPhone("1868687247");
         user.setBalance(200);
