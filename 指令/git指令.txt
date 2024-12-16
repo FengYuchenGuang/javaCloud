@@ -46,10 +46,16 @@ git push -u origin main//推送
 git push -u origin main
 
 
+
+//如果未使用 VPN 需要取消代理
 //取消http代理
 git config --global --unset http.proxy
 //取消https代理
 git config --global --unset https.proxy
+
+//如果使用了VPN 需要先取消代理，再设置 7890 （你的代理号）
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy https://127.0.0.1:7890
 
 //远程仓库拉取到本地仓库
 git pull
