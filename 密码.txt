@@ -1,0 +1,32 @@
+
+Ubuntu24.04
+全名 hxz
+用户名 FenYuChen
+密码 275654497
+
+root密码
+123456
+
+IP
+192.168.253.128
+
+切换到 root 用户  以及 如何退出
+sudo -i      
+exit
+
+
+打开ssh，进行远程连接
+终端敲入以下，然后输入密码275654497
+/etc/init.d/ssh start
+
+
+
+
+
+
+CentOS7
+root 密码
+hxz123
+
+IP 
+192.168.253.88
